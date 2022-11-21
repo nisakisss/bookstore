@@ -5,10 +5,8 @@ import { useState, useEffect } from "react";
 
 const API_URL = "http://localhost:3000/api/v1/books";
 
-const getApidata = () => {
-  axios.get(API_URL).then((res) => {
-    console.log(res.data);
-  });
+const getAPIData = () => {
+  return axios.get(API_URL).then((res) => res.data);
 };
 
 function App() {
@@ -16,7 +14,7 @@ function App() {
 
   useEffect(() => {
     let mounted = true;
-    getApidata().then((items) => {
+    getAPIData().then((items) => {
       if (mounted) {
         setBooks(items);
       }
